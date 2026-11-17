@@ -1,0 +1,92 @@
+[
+ {
+  "id": "lotos",
+  "name": "Mandala lotosu",
+  "w": 2800,
+  "h": 2800,
+  "regions": 1273,
+  "colors": 15,
+  "cat": "Mandale"
+ },
+ {
+  "id": "gwiazda",
+  "name": "Gwiezdna mandala",
+  "w": 2800,
+  "h": 2800,
+  "regions": 876,
+  "colors": 14,
+  "cat": "Mandale"
+ },
+ {
+  "id": "rozeta",
+  "name": "Witrażowa rozeta",
+  "w": 2800,
+  "h": 2800,
+  "regions": 869,
+  "colors": 16,
+  "cat": "Mandale"
+ },
+ {
+  "id": "ogrod",
+  "name": "Mandala ogrodowa",
+  "w": 2800,
+  "h": 2800,
+  "regions": 1610,
+  "colors": 16,
+  "cat": "Mandale"
+ },
+ {
+  "id": "zachod",
+  "name": "Zachód słońca nad jeziorem",
+  "w": 2800,
+  "h": 2100,
+  "regions": 1436,
+  "colors": 23,
+  "cat": "Krajobrazy"
+ },
+ {
+  "id": "zamek",
+  "name": "Zamek z bajki",
+  "w": 2800,
+  "h": 2100,
+  "regions": 1529,
+  "colors": 28,
+  "cat": "Krajobrazy"
+ },
+ {
+  "id": "balony",
+  "name": "Balony nad doliną",
+  "w": 2800,
+  "h": 2100,
+  "regions": 1148,
+  "colors": 27,
+  "cat": "Krajobrazy"
+ },
+ {
+  "id": "ocean",
+  "name": "Podwodny świat",
+  "w": 2800,
+  "h": 2100,
+  "regions": 1229,
+  "colors": 24,
+  "cat": "Zwierzęta"
+ },
+ {
+  "id": "motyl",
+  "name": "Motyl w ogrodzie",
+  "w": 2800,
+  "h": 2100,
+  "regions": 918,
+  "colors": 19,
+  "cat": "Zwierzęta"
+ },
+ {
+  "id": "sowa",
+  "name": "Sowa w blasku księżyca",
+  "w": 2800,
+  "h": 2100,
+  "regions": 1050,
+  "colors": 23,
+  "cat": "Zwierzęta"
+ }
+]

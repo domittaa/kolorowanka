@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Kolorowanka">
+<meta name="theme-color" content="#f4efe8">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<title>Kolorowanka</title>
+</head>
+<body>
+
+<section id="gallery" class="screen">
+  <div class="g-inner">
+    <header class="g-head">
+      <h1>Kolorowanka</h1>
+      <p>Wybierz obrazek i maluj rysikiem po numerach</p>
+    </header>
+    <div id="grid"></div>
+  </div>
+</section>
+
+<section id="painter" class="screen hidden">
+  <header class="p-bar">
+    <button id="btnBack" class="tb back" aria-label="Wróć do galerii">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span>Galeria</span>
+    </button>
+    <div class="p-title"><b id="pName"></b><small id="pProg"></small></div>
+    <div class="p-tools">
+      <button id="btnUndo" class="tb" aria-label="Cofnij">
+        <svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 010 11H11"/></svg><span>Cofnij</span>
+      </button>
+      <button id="btnRedo" class="tb" aria-label="Ponów">
+        <svg viewBox="0 0 24 24"><path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 000 11H13"/></svg><span>Ponów</span>
+      </button>
+      <button id="btnInside" class="tb toggle" aria-label="Maluj tylko w polu">
+        <svg viewBox="0 0 24 24"><path d="M12 3c4 2.5 8 3 8 9s-4 8-8 9c-4-1-8-3-8-9s4-6.5 8-9z"/><path d="M9 12.5l2 2 4-4.5"/></svg><span>W polu</span>
+      </button>
+      <button id="btnPeek" class="tb toggle" aria-label="Podgląd gotowego obrazka">
+        <svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>Podgląd</span>
+      </button>
+      <button id="btnFit" class="tb" aria-label="Pokaż cały obrazek">
+        <svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Cały</span>
+      </button>
+      <button id="btnShare" class="tb" aria-label="Zapisz obrazek">
+        <svg viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/></svg><span>Zapisz</span>
+      </button>
+    </div>
+  </header>
+
+  <div id="view">
+    <canvas id="cBase"></canvas>
+    <canvas id="cBaseHi" class="hi"></canvas>
+    <canvas id="cPaint"></canvas>
+    <canvas id="cLines"></canvas>
+    <canvas id="cLinesHi" class="hi"></canvas>
+    <div id="peek" class="hidden"><img alt="Podgląd gotowego obrazka"></div>
+    <div id="loading"><div class="spin"></div><span>Przygotowuję obrazek…</span></div>
+  </div>
+
+  <footer class="p-bottom">
+    <div id="palette"></div>
+    <div class="brush">
+      <button id="btnEraser" class="tb toggle" aria-label="Gumka">
+        <svg viewBox="0 0 24 24"><path d="M16.5 3.5l4 4a2 2 0 010 2.8L11 19.8H6.7l-3.2-3.2a2 2 0 010-2.8L13.7 3.5a2 2 0 012.8 0z"/><path d="M9 9l6 6M11 20h9"/></svg><span>Gumka</span>
+      </button>
+      <div class="size">
+        <div class="dot-wrap"><i id="sizeDot"></i></div>
+        <input id="size" type="range" min="3" max="80" step="1" value="20" aria-label="Grubość pędzla">
+      </div>
+    </div>
+  </footer>
+</section>
+
+<section id="creator" class="screen hidden">
+  <header class="p-bar">
+    <button id="crCancel" class="tb back" aria-label="Anuluj">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span>Anuluj</span>
+    </button>
+    <div class="p-title"><b>Kolorowanka ze zdjęcia</b><small id="crInfo"></small></div>
+    <button id="crAdd" class="cr-add" disabled>Dodaj i maluj</button>
+  </header>
+  <div id="crView">
+    <canvas id="crCanvas"></canvas>
+    <div id="crHint">Stuknij podgląd, żeby zobaczyć kontury z numerami</div>
+    <div id="crBusy"><div class="spin"></div><span id="crBusyText">Przygotowuję…</span></div>
+  </div>
+  <footer class="cr-opts">
+    <div class="opt"><label>Kolory</label>
+      <div class="seg" id="crColors"><button data-v="12">12</button><button data-v="18">18</button><button data-v="24">24</button><button data-v="30">30</button></div>
+    </div>
+    <div class="opt"><label>Szczegóły</label>
+      <div class="seg" id="crDetail"><button data-v="0">Mało</button><button data-v="1">Średnio</button><button data-v="2">Dużo</button><button data-v="3">Bardzo dużo</button></div>
+    </div>
+    <div class="opt grow"><label for="crName">Nazwa</label><input id="crName" type="text" maxlength="40" autocomplete="off"></div>
+  </footer>
+</section>
+<input type="file" id="fileIn" accept="image/*" hidden>
+
+<div id="modal" class="hidden">
+  <div class="m-box">
+    <div id="mText"></div>
+    <div id="mBtns"></div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
