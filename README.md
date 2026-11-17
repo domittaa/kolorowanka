@@ -1,106 +1,110 @@
-# Kolorowanka po numerach (iPad + Apple Pencil)
+# Kolorowanka: paint by numbers (iPad + Apple Pencil)
 
-Cała aplikacja to folder **`app`**. Działa w Safari na iPadzie, a po dodaniu do ekranu
-początkowego otwiera się jak zwykła aplikacja: z własną ikoną, na pełnym ekranie i bez internetu.
+The whole app is the **`app`** folder. It runs in Safari on an iPad, and once added to the
+home screen it opens like a regular app: with its own icon, full screen, and no internet needed.
 
-Oprócz gotowych obrazków możesz **wgrać własne zdjęcia**: aplikacja sama przerobi je
-na kolorowankę po numerach (kontury, pola i numery), bez internetu i bez wysyłania zdjęcia
-gdziekolwiek. Szczegóły w sekcji [Własne zdjęcia jako kolorowanki](#własne-zdjęcia-jako-kolorowanki).
+Besides the built-in pictures, you can **upload your own photos**: the app turns them into
+a paint-by-numbers page (outlines, regions and numbers) on the device, without internet and
+without sending the photo anywhere. Details in
+[Your own photos as coloring pages](#your-own-photos-as-coloring-pages).
 
-W środku jest 10 gotowych obrazków (każdy ma 870–1610 pól):
+The app UI is in Polish; button names are quoted below in Polish with an English gloss.
 
-| Kategoria  | Obrazki |
-|------------|---------|
-| Mandale    | Mandala lotosu, Gwiezdna mandala, Witrażowa rozeta, Mandala ogrodowa (najtrudniejsza) |
-| Krajobrazy | Zachód słońca nad jeziorem, Zamek z bajki, Balony nad doliną |
-| Zwierzęta  | Podwodny świat, Motyl w ogrodzie, Sowa w blasku księżyca |
+There are 10 built-in pictures (each has 870–1610 regions):
 
----
-
-## Instalacja na iPadzie (na stałe, zalecana)
-
-Aplikację trzeba raz wrzucić do internetu, żeby iPad mógł ją pobrać. Najprościej zrobić to
-w darmowym serwisie **Netlify**: przeciągasz folder i to wszystko.
-
-**Na Macu:**
-
-1. Otwórz w przeglądarce stronę **https://app.netlify.com/drop**.
-2. Załóż darmowe konto albo się zaloguj (np. przez Google lub e-mail).
-3. W Finderze otwórz folder `claude_projects` → `kolorowanka`. Przeciągnij folder **`app`**
-   na pole do upuszczania plików na stronie Netlify.
-4. Po kilku sekundach dostaniesz adres w rodzaju `https://cos-tam-123abc.netlify.app`.
-   Możesz go zmienić na łatwiejszy: **Site configuration → Change site name**
-   (np. `kolorowanka-moja`, wtedy adres to `https://kolorowanka-moja.netlify.app`).
-
-**Na iPadzie:**
-
-5. Otwórz ten adres w **Safari**.
-6. Stuknij przycisk **Udostępnij** (kwadrat ze strzałką w górę), a potem
-   **„Do ekranu początkowego”**. Jeśli pojawi się przełącznik **„Otwórz jako aplikację internetową”**,
-   zostaw go włączonego. Na koniec stuknij **Dodaj**.
-7. Od teraz uruchamiaj Kolorowankę ikoną z ekranu początkowego. Za pierwszym razem iPad
-   musi mieć internet, żeby pobrać obrazki (około 5 MB). Później działa też offline.
-
-Postępy w malowaniu zapisują się na iPadzie, w samej aplikacji. Nie usuwaj danych tej strony
-w Ustawieniach Safari, bo stracisz pokolorowane obrazki.
+| Category   | Pictures |
+|------------|----------|
+| Mandalas   | Lotus mandala, Star mandala, Stained-glass rosette, Garden mandala (the hardest) |
+| Landscapes | Sunset over a lake, Fairy-tale castle, Balloons over a valley |
+| Animals    | Underwater world, Butterfly in a garden, Owl in the moonlight |
 
 ---
 
-## Szybki test bez zakładania konta (iPad i Mac w tej samej sieci Wi-Fi)
+## Installing on the iPad (permanent, recommended)
 
-1. Na Macu otwórz **Terminal** i wpisz:
+The app has to be put online once so the iPad can download it. The easiest way is the free
+**Netlify** service: you drag the folder onto a page and that's it.
+
+**On the Mac:**
+
+1. Open **https://app.netlify.com/drop** in a browser.
+2. Create a free account or log in (e.g. with Google or e-mail).
+3. In Finder, open `claude_projects` → `kolorowanka`. Drag the **`app`** folder onto the
+   drop area on the Netlify page.
+4. After a few seconds you get an address like `https://something-123abc.netlify.app`.
+   You can change it to something easier: **Site configuration → Change site name**
+   (e.g. `kolorowanka-mine`, giving `https://kolorowanka-mine.netlify.app`).
+
+**On the iPad:**
+
+5. Open that address in **Safari**.
+6. Tap the **Share** button (a square with an up arrow), then **"Add to Home Screen"**.
+   If an **"Open as Web App"** toggle appears, leave it on. Finally tap **Add**.
+7. From now on, launch Kolorowanka from the home screen icon. The first time, the iPad
+   needs internet to download the pictures (about 5 MB). After that it also works offline.
+
+Your painting progress is saved on the iPad, inside the app. Don't clear this site's data in
+Safari settings, or you will lose your colored pictures.
+
+---
+
+## Quick test without an account (iPad and Mac on the same Wi-Fi)
+
+1. On the Mac, open **Terminal** and run:
    ```bash
    cd ~/claude_projects/kolorowanka/app && python3 -m http.server 8000
    ```
-2. Na iPadzie otwórz w Safari adres **`http://192.168.1.146:8000`**.
-   To adres Maca w sieci domowej i może się zmienić. Aktualny sprawdzisz w Ustawieniach systemowych
-   → Wi-Fi → Szczegóły → Adres IP.
-3. Tak to działa tylko wtedy, gdy Mac jest włączony, a polecenie w Terminalu pracuje.
-   Kreski namalowane w trybie testowym nie przejdą do wersji z Netlify.
+2. On the iPad, open **`http://192.168.1.146:8000`** in Safari.
+   This is the Mac's address on your home network and it may change. You can check the current
+   one in System Settings → Wi-Fi → Details → IP address.
+3. This only works while the Mac is on and the command in Terminal is running.
+   Strokes painted in test mode will not carry over to the Netlify version.
 
 ---
 
-## Własne zdjęcia jako kolorowanki
+## Your own photos as coloring pages
 
-1. W galerii, w sekcji **Twoje zdjęcia**, stuknij kafelek **Dodaj zdjęcie** i wybierz zdjęcie
-   z galerii iPada albo zrób nowe.
-2. Wybierz **liczbę kolorów** (12–30) i **szczegóły**:
-   - **Mało**: tylko plamy koloru ze zdjęcia, mniej i większe pola,
-   - **Średnio / Dużo / Bardzo dużo**: duże plamy są dodatkowo dzielone na kawałki jak w witrażu.
-     Pól jest coraz więcej (orientacyjnie ok. 1500 / 3000 / 5500 przy wyraźnym zdjęciu).
-3. Stuknij podgląd, żeby zobaczyć kontury z numerami. Stuknij jeszcze raz, żeby wrócić do kolorów.
-4. Wpisz nazwę i stuknij **Dodaj i maluj**.
+1. In the gallery, in the **Twoje zdjęcia** (Your photos) section, tap the **Dodaj zdjęcie**
+   (Add photo) tile and pick a photo from the iPad library or take a new one.
+2. Choose the **number of colors** (12–30) and the **level of detail**:
+   - **Mało** (Low): only color blobs from the photo, fewer and larger regions,
+   - **Średnio / Dużo / Bardzo dużo** (Medium / High / Very high): large blobs are further split
+     into pieces, like stained glass. The number of regions keeps growing
+     (roughly 1500 / 3000 / 5500 for a photo with a clear subject).
+3. Tap the preview to see the outlines with numbers. Tap again to go back to colors.
+4. Enter a name and tap **Dodaj i maluj** (Add and paint).
 
-Przerabianie przy „Bardzo dużo” może potrwać nawet ok. minuty. Zdjęcie jest przerabiane na iPadzie, bez internetu, i nigdzie nie jest wysyłane. Gotowa kolorowanka
-zostaje tylko w aplikacji na tym iPadzie. Przycisk **Usuń** na kafelku kasuje ją z galerii, ale nie
-rusza oryginalnego zdjęcia w Zdjęciach. Najlepiej wychodzą zdjęcia z wyraźnym tematem:
-zwierzęta, kwiaty, krajobrazy, portrety.
+Converting at "Bardzo dużo" can take up to about a minute. The photo is processed on the iPad,
+offline, and is never uploaded anywhere. The finished coloring page stays only in the app on
+that iPad. The **Usuń** (Delete) button on a tile removes it from the gallery but does not touch
+the original photo in Photos. Photos with a clear subject work best: animals, flowers,
+landscapes, portraits.
 
-## Jak malować
+## How to paint
 
-- **Wybór obrazka:** po otwarciu aplikacji widzisz galerię. Stuknij obrazek i możesz malować.
-- **Kolor:** wybierasz go z paska na dole. Numer na kółku odpowiada numerom w polach.
-  Pola z wybranym numerem są lekko podświetlone, więc łatwo je znaleźć.
-- **Rysik:** maluje naprawdę, kreska po kresce. Mocniejszy nacisk daje trochę grubszą kreskę.
-- **Grubość pędzla:** suwak w prawym dolnym rogu.
-- **Palce:** dwoma palcami przybliżasz, oddalasz i przesuwasz obrazek. Po pierwszym użyciu rysika
-  przesuwać można też jednym palcem, a dłoń oparta o ekran nie maluje.
-- **Stuknięcie dwoma palcami** albo przycisk **Cofnij** cofa ostatnią kreskę.
-- **W polu** (włączone na start): kolor nie wychodzi poza pole, w którym zaczniesz kreskę,
-  nawet jeśli rysik zjedzie za linię. Po wyłączeniu malujesz zupełnie swobodnie.
-- **Gumka:** ściera namalowany kolor.
-- **✓ przy kolorze** oznacza, że wszystkie pola z tym numerem są już pomalowane.
-- **Podgląd:** pokazuje, jak wygląda gotowy obrazek.
-- **Zapisz:** otwiera menu udostępniania, w którym wybierasz „Zapisz obraz”, żeby obrazek trafił do Zdjęć.
-- **Od nowa** (na kafelku w galerii): czyści obrazek.
+- **Choosing a picture:** the app opens to a gallery. Tap a picture and start painting.
+- **Color:** pick it from the bar at the bottom. The number on the circle matches the numbers
+  in the regions. Regions with the selected number are lightly highlighted, so they are easy to find.
+- **Pencil:** paints for real, stroke by stroke. Pressing harder gives a slightly thicker stroke.
+- **Brush size:** the slider in the bottom right corner.
+- **Fingers:** use two fingers to zoom and pan the picture. After the Pencil is first used,
+  you can also pan with one finger, and a resting palm does not paint.
+- **Two-finger tap** or the **Cofnij** (Undo) button undoes the last stroke.
+- **W polu** (In the region, on by default): color stays inside the region where you started
+  the stroke, even if the Pencil slips over the line. Turn it off to paint completely freely.
+- **Eraser:** wipes off painted color.
+- **✓ next to a color** means all regions with that number are already painted.
+- **Podgląd** (Preview): shows what the finished picture looks like.
+- **Zapisz** (Save): opens the share sheet, where you choose "Save Image" to put the picture in Photos.
+- **Od nowa** (Start over, on a gallery tile): clears the picture.
 
 ---
 
-## Dla ciekawskich: skąd się biorą obrazki
+## For the curious: where the pictures come from
 
-Obrazki generują skrypty w folderze `tools` (Python z bibliotekami numpy, scipy, scikit-image
-i pillow). Każdy obrazek powstaje z kształtów, które skrypt dzieli na pola, a potem dobiera
-miejsce i wielkość numeru w każdym polu. Kolejny obrazek dodaje się nową funkcją w `tools/scenes.py`
-albo `tools/mandalas.py`, wpisem w `PICTURES` i poleceniem `python build.py <id>`. Po każdej zmianie
-w folderze `app` podbij numer `VERSION` w `app/sw.js` i przeciągnij folder `app` na Netlify jeszcze raz
-(w zakładce **Deploys** swojej strony).
+The pictures are generated by scripts in the `tools` folder (Python with numpy, scipy,
+scikit-image and pillow). Each picture is built from shapes that the script splits into regions,
+then it picks the position and size of the number in each region. To add another picture, write a
+new function in `tools/scenes.py` or `tools/mandalas.py`, add an entry to `PICTURES`, and run
+`python build.py <id>`. After every change in the `app` folder, bump the `VERSION` number in
+`app/sw.js` and drag the `app` folder onto Netlify again (in your site's **Deploys** tab).
