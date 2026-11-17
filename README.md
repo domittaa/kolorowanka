@@ -3,7 +3,11 @@
 Cała aplikacja to folder **`app`**. Działa w Safari na iPadzie, a po dodaniu do ekranu
 początkowego otwiera się jak zwykła aplikacja: z własną ikoną, na pełnym ekranie i bez internetu.
 
-W środku jest 10 obrazków (każdy ma 870–1610 pól):
+Oprócz gotowych obrazków możesz **wgrać własne zdjęcia**: aplikacja sama przerobi je
+na kolorowankę po numerach (kontury, pola i numery), bez internetu i bez wysyłania zdjęcia
+gdziekolwiek. Szczegóły w sekcji [Własne zdjęcia jako kolorowanki](#własne-zdjęcia-jako-kolorowanki).
+
+W środku jest 10 gotowych obrazków (każdy ma 870–1610 pól):
 
 | Kategoria  | Obrazki |
 |------------|---------|
